@@ -8,6 +8,8 @@ import com.example.ccs_test_2.features.valuteListScreen.data.network.ValuteApi
 import com.example.ccs_test_2.features.valuteListScreen.data.network.ValuteApiInterface
 import com.example.ccs_test_2.features.valuteListScreen.data.repository.ValuteRepositoryImpl
 import com.example.ccs_test_2.features.valuteListScreen.domain.repository.ValuteRepository
+import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.AddBookmarkUseCase
+import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.DeleteBookmarkUseCase
 import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.GetValuteCursUseCase
 import com.example.ccs_test_2.features.valuteListScreen.presentation.viewModel.ValuteListScreenViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -42,12 +44,26 @@ val domainModule = module {
             valuteRepository = get()
         )
     }
+
+    factory<AddBookmarkUseCase> {
+        AddBookmarkUseCase(
+            valuteRepository = get()
+        )
+    }
+
+    factory<DeleteBookmarkUseCase> {
+        DeleteBookmarkUseCase(
+            valuteRepository = get()
+        )
+    }
 }
 
 val presentationModule = module {
     viewModel {
         ValuteListScreenViewModel(
-            getValuteCursUseCase = get()
+            getValuteCursUseCase = get(),
+            addBookmarkUseCase = get(),
+            deleteBookmarkUseCase = get()
         )
     }
 }

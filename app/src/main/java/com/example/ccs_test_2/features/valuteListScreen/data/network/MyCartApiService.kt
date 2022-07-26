@@ -19,7 +19,7 @@ interface ValuteApiInterface {
     suspend fun getValuteCurs(
         @Query("date_req1") dateFrom: String,
         @Query("date_req2") dateBefore: String,
-        @Query("VAL_NM_RQ") valuteCode: String = "R01235",
+        @Query("VAL_NM_RQ") valuteCode: String,
     ): ValCursRemote
 
 }

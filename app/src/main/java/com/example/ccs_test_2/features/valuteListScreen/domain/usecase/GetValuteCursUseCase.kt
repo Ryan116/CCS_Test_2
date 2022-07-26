@@ -7,8 +7,9 @@ import com.example.ccs_test_2.features.valuteListScreen.domain.repository.Valute
 class GetValuteCursUseCase(private val valuteRepository: ValuteRepository) {
     suspend fun getValuteCurs(
         dateFrom: String,
-        dateBefore: String
-    ): LiveData<List<RecordDomain>> {
-        return valuteRepository.getValuteCurs(dateFrom, dateBefore)
+        dateBefore: String,
+        valuteCode: String
+    ): List<RecordDomain> {
+        return valuteRepository.getValuteCurs(dateFrom, dateBefore, valuteCode)
     }
 }

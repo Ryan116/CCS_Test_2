@@ -5,5 +5,5 @@ import com.example.ccs_test_2.features.valuteListScreen.data.network.modelRemote
 
 interface ValuteRemoteDataSource {
 
-    suspend fun getValuteCurs(dateFrom: String, dateBefore: String): List<RecordRemote>?
+    suspend fun getValuteCurs(dateFrom: String, dateBefore: String, valuteCode: String): List<RecordRemote>?
 }

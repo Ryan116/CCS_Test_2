@@ -7,8 +7,8 @@ class ValuteRemoteDataSourceImpl(
     private val valuteApiInterface: ValuteApiInterface
     ) : ValuteRemoteDataSource {
 
-    override suspend fun getValuteCurs(dateFrom: String, dateBefore: String): List<RecordRemote>? {
-        return valuteApiInterface.getValuteCurs(dateFrom, dateBefore).recordList
+    override suspend fun getValuteCurs(dateFrom: String, dateBefore: String, valuteCode: String): List<RecordRemote>? {
+        return valuteApiInterface.getValuteCurs(dateFrom, dateBefore,valuteCode).recordList
     }
 
 

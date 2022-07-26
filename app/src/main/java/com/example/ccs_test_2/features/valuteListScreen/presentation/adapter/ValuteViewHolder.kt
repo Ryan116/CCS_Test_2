@@ -6,6 +6,7 @@ import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomai
 
 class ValuteViewHolder(private var binding: RecordItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
+    val bookmark = binding.imageViewFavorite
     fun bind(record: RecordDomain) {
         binding.apply {
             textViewDate.text = record.date
