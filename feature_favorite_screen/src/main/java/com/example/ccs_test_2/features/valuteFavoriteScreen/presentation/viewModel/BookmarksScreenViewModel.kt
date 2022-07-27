@@ -17,8 +17,7 @@ class BookmarksScreenViewModel(
     private val deleteAllBookmarksUseCase: DeleteAllBookmarksUseCase
 ) : ViewModel() {
 
-    private val _bookmarksList = MutableLiveData<List<RecordBookmark>>()
-    val bookmarksList: LiveData<List<RecordBookmark>> = _bookmarksList
+    var bookmarksList: LiveData<List<RecordBookmark>> = MutableLiveData()
 
     init {
         getBookmarksList()
@@ -26,7 +25,7 @@ class BookmarksScreenViewModel(
 
     private fun getBookmarksList() {
         viewModelScope.launch {
-            _bookmarksList.value = getBookmarksListUseCase.getBookmarksList()
+            bookmarksList = getBookmarksListUseCase.getBookmarksList()
         }
     }
 

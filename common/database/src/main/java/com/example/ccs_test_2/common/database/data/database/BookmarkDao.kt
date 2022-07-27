@@ -7,7 +7,7 @@ import com.example.ccs_test_2.common.database.data.modelDB.RecordDB
 @Dao
 interface BookmarkDao {
     @Query("SELECT * FROM currency_table ORDER BY id")
-    suspend fun getBookmarks(): List<RecordDB>
+    fun getBookmarks(): LiveData<List<RecordDB>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addBookmark(recordDB: RecordDB)

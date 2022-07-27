@@ -1,6 +1,7 @@
 package com.example.ccs_test_2.features.valuteFavoriteScreen.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,6 +44,7 @@ class ValuteFavouriteFragment : Fragment() {
 
                 }
             )
+            Log.d("Valute", it.toString())
             adapterBookmark.submitList(it)
             binding.recyclerViewValuteList.adapter = adapterBookmark
             binding.recyclerViewValuteList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
