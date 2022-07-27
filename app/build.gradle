@@ -76,6 +76,8 @@ dependencies {
     implementation "io.insert-koin:koin-android:3.1.4"
     //Modules
     implementation project(path: ':feature_valute_list_screen')
+    implementation project(path: ':common:database')
+    implementation project(path: ':feature_favorite_screen')
 
 
 

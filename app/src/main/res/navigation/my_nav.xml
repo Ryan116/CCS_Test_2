@@ -12,7 +12,19 @@
         tools:layout="@layout/fragment_valute_list" />
     <fragment
         android:id="@+id/valuteFavouriteFragment"
-        android:name="com.example.ccs_test_2.features.valuteFavouriteScreen.presentation.ValuteFavouriteFragment"
+        android:name="com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.ValuteFavouriteFragment"
         android:label="fragment_valute_favourite"
         tools:layout="@layout/fragment_valute_favourite" />
+
+    <action
+        android:id="@+id/action_to_valute_list_fragment"
+        app:destination="@id/valuteListFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
+
+    <action
+        android:id="@+id/action_to_favorite_fragment"
+        app:destination="@id/valuteFavouriteFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim" />
 </navigation>

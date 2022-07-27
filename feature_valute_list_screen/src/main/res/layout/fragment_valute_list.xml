@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".features.valuteListScreen.presentation.ValuteListFragment">
+    tools:context="com.example.ccs_test_2.features.valuteListScreen.presentation.ValuteListFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView

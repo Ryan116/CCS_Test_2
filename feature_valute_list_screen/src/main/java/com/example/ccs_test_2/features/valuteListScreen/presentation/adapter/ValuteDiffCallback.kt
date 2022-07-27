@@ -5,7 +5,7 @@ import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomai
 
 class ValuteDiffCallback:DiffUtil.ItemCallback<RecordDomain>() {
     override fun areItemsTheSame(oldItem: RecordDomain, newItem: RecordDomain): Boolean {
-        return oldItem.id == newItem.id
+        return oldItem.date == newItem.date
     }
 
     override fun areContentsTheSame(oldItem: RecordDomain, newItem: RecordDomain): Boolean {
