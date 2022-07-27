@@ -10,7 +10,7 @@ import android.widget.AdapterView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ccs_test_2.databinding.FragmentValuteListBinding
+import com.example.ccs_test_2.features.valuteListScreen.databinding.FragmentValuteListBinding
 import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomain
 import com.example.ccs_test_2.features.valuteListScreen.presentation.adapter.ValuteAdapter
 import com.example.ccs_test_2.features.valuteListScreen.presentation.viewModel.ValuteListScreenViewModel

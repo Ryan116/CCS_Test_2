@@ -4,8 +4,8 @@ package com.example.ccs_test_2.features.valuteListScreen.presentation.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.ccs_test_2.R
-import com.example.ccs_test_2.databinding.RecordItemBinding
+import com.example.ccs_test_2.features.valuteListScreen.R
+import com.example.ccs_test_2.features.valuteListScreen.databinding.RecordItemBinding
 import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomain
 
 class ValuteAdapter(private val bookmarkClickListener: BookmarkClickListener) :

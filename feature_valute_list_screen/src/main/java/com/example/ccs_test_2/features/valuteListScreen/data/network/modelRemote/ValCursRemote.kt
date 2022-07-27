@@ -1,6 +1,5 @@
 package com.example.ccs_test_2.features.valuteListScreen.data.network.modelRemote
 
-import com.example.ccs_test_2.features.valuteListScreen.data.network.modelRemote.RecordRemote
 import org.simpleframework.xml.Attribute
 import org.simpleframework.xml.ElementList
 import org.simpleframework.xml.Root

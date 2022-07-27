@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CCS_Test_2"
 include ':app'
+include ':feature_valute_list_screen'

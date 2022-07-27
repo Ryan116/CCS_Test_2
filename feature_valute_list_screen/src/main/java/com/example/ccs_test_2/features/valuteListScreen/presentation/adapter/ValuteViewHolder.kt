@@ -1,7 +1,7 @@
 package com.example.ccs_test_2.features.valuteListScreen.presentation.adapter
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ccs_test_2.databinding.RecordItemBinding
+import com.example.ccs_test_2.features.valuteListScreen.databinding.RecordItemBinding
 import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomain
 
 class ValuteViewHolder(private var binding: RecordItemBinding) :

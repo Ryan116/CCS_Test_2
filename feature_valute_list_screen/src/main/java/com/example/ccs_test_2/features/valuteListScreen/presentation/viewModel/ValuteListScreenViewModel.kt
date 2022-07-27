@@ -10,10 +10,8 @@ import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.AddBookma
 import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.DeleteBookmarkUseCase
 import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.GetValuteCursUseCase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.*
-
 
 
 enum class ValuteApiStatus { LOADING, ERROR, DONE }
