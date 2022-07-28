@@ -9,11 +9,15 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ccs_test_2.features.valuteListScreen.databinding.FragmentValuteListBinding
 import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomain
 import com.example.ccs_test_2.features.valuteListScreen.presentation.adapter.ValuteAdapter
+import com.example.ccs_test_2.features.valuteListScreen.presentation.viewModel.ValuteApiStatus
 import com.example.ccs_test_2.features.valuteListScreen.presentation.viewModel.ValuteListScreenViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -40,26 +44,29 @@ class ValuteListFragment : Fragment() {
             textViewDateBefore.text = valuteListScreenViewModel.listDatesFromBefore[1]
         }
 
-        valuteListScreenViewModel.valuteCurses.observe(viewLifecycleOwner) {
-            val valuteAdapter = ValuteAdapter(
-                object : ValuteAdapter.BookmarkClickListener {
-                    override fun addBookmark(recordDomain: RecordDomain) {
-                        valuteListScreenViewModel.addBookmark(recordDomain)
-                    }
+        lifecycleScope.launch(Dispatchers.Main) {
+            valuteListScreenViewModel.valuteCurses.collect {
+                val valuteAdapter = ValuteAdapter(
+                    object : ValuteAdapter.BookmarkClickListener {
+                        override fun addBookmark(recordDomain: RecordDomain) {
+                            valuteListScreenViewModel.addBookmark(recordDomain)
+                        }
 
-                    override fun deleteBookmark(recordDomain: RecordDomain) {
-                        valuteListScreenViewModel.deleteBookmark(recordDomain)
-                    }
+                        override fun deleteBookmark(recordDomain: RecordDomain) {
+                            valuteListScreenViewModel.deleteBookmark(recordDomain)
+                        }
 
+                    }
+                )
+                valuteAdapter.submitList(it)
+                binding.apply {
+                    recyclerViewValuteList.adapter = valuteAdapter
+                    recyclerViewValuteList.layoutManager =
+                        LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
                 }
-            )
-            valuteAdapter.submitList(it)
-            binding.apply {
-                recyclerViewValuteList.adapter = valuteAdapter
-                recyclerViewValuteList.layoutManager =
-                    LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             }
         }
+
 
         setDateOnTextView(binding.textViewDateFrom)
         setDateOnTextView(binding.textViewDateBefore)
@@ -79,9 +86,12 @@ class ValuteListFragment : Fragment() {
                     "GBP" -> {valuteListScreenViewModel.setCurrency("R01035")}
                     else -> {valuteListScreenViewModel.setCurrency("R01235")}
                 }
-                valuteListScreenViewModel.currentCurrency.observe(viewLifecycleOwner) {
-                    valuteListScreenViewModel.getValuteList(valuteCode = it)
+                lifecycleScope.launch(Dispatchers.Main) {
+                    valuteListScreenViewModel.currentCurrency.collect {
+                        valuteListScreenViewModel.getValuteList(valuteCode = it)
+                    }
                 }
+
 
             }
 
@@ -123,9 +133,12 @@ class ValuteListFragment : Fragment() {
                 || (dateBeforeList[2] == dateFromList[2] && dateBeforeList[1] == dateFromList[1]
                         && dateBeforeList[0] >= dateFromList[0])
             ) {
-                valuteListScreenViewModel.currentCurrency.observe(viewLifecycleOwner) {
-                    valuteListScreenViewModel.getValuteList(dateFrom = dateFrom, dateBefore = dateBefore, valuteCode = it)
+                lifecycleScope.launch() {
+                    valuteListScreenViewModel.currentCurrency.collect {
+                        valuteListScreenViewModel.getValuteList(dateFrom = dateFrom, dateBefore = dateBefore, valuteCode = it)
+                    }
                 }
+
 
             } else {
                 Toast.makeText(
@@ -135,6 +148,25 @@ class ValuteListFragment : Fragment() {
                 ).show()
             }
         }
+
+        lifecycleScope.launch (Dispatchers.Main) {
+            valuteListScreenViewModel.status.collect {
+                when (it) {
+                    is ValuteApiStatus.ERROR -> {
+                        Toast.makeText(
+                            requireContext(),
+                            it.error,
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+                    else -> {
+
+                    }
+                }
+            }
+        }
+
 
     }
 

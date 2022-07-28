@@ -1,8 +1,6 @@
 package com.example.ccs_test_2.features.valuteListScreen.presentation.viewModel
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomain
@@ -10,11 +8,17 @@ import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.AddBookma
 import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.DeleteBookmarkUseCase
 import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.GetValuteCursUseCase
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.util.*
 
-
-enum class ValuteApiStatus { LOADING, ERROR, DONE }
+sealed class ValuteApiStatus() {
+    class LOADING() : ValuteApiStatus()
+    class ERROR(val error: String) : ValuteApiStatus()
+    class DONE() : ValuteApiStatus()
+    object Empty : ValuteApiStatus()
+}
 
 class ValuteListScreenViewModel(
     private val getValuteCursUseCase: GetValuteCursUseCase,
@@ -22,21 +26,20 @@ class ValuteListScreenViewModel(
     private val deleteBookmarkUseCase: DeleteBookmarkUseCase,
 ) : ViewModel() {
 
-    private val _status = MutableLiveData<ValuteApiStatus>()
-    val status: LiveData<ValuteApiStatus> = _status
+    private var _status = MutableStateFlow<ValuteApiStatus>(ValuteApiStatus.Empty)
+    val status: StateFlow<ValuteApiStatus> = _status
 
-    private val _valuteCurses = MutableLiveData<List<RecordDomain>>()
-    val valuteCurses: LiveData<List<RecordDomain>> = _valuteCurses
+    private var _valuteCurses = MutableStateFlow<List<RecordDomain>>(mutableListOf())
+    val valuteCurses: StateFlow<List<RecordDomain>> = _valuteCurses
 
-    private val _listDatesFromBefore = mutableListOf<String>()
+    private var _listDatesFromBefore = mutableListOf<String>()
     val listDatesFromBefore: List<String> = _listDatesFromBefore
 
-    private val _currentCurrency = MutableLiveData<String>()
-    val currentCurrency: LiveData<String> = _currentCurrency
+    private var _currentCurrency = MutableStateFlow<String>("USD")
+    val currentCurrency: StateFlow<String> = _currentCurrency
 
 
     init {
-        _currentCurrency.value = "USD"
         getLastMonthDates()
         getValuteList(listDatesFromBefore[0], listDatesFromBefore[1])
     }
@@ -47,22 +50,28 @@ class ValuteListScreenViewModel(
 
     fun filterCurrencyList(filterType: String) {
         _valuteCurses.value = when(filterType) {
-            "1..10" -> {_valuteCurses.value?.sortedBy { it.value }}
-            "10..1" -> {_valuteCurses.value?.sortedByDescending { it.value }}
-            else -> {_valuteCurses.value?.sortedBy { it.date }}
+            "1..10" -> {
+                        _valuteCurses.value.sortedBy { it.value }
+                    }
+            "10..1" -> {
+                        _valuteCurses.value.sortedByDescending { it.value }
+                    }
+            else -> {
+                        _valuteCurses.value.sortedBy { it.date }
+                    }
         }
     }
 
 
     fun getValuteList(dateFrom: String = "01/07/2022", dateBefore: String = "26/07/2022", valuteCode: String = "R01235") {
         viewModelScope.launch {
-            _status.value = ValuteApiStatus.LOADING
+            _status.value = ValuteApiStatus.LOADING()
             try {
                 _valuteCurses.value =
                     getValuteCursUseCase.getValuteCurs(dateFrom, dateBefore, valuteCode)
-                _status.value = ValuteApiStatus.DONE
+                _status.value = ValuteApiStatus.DONE()
             } catch (e: Exception) {
-                _status.value = ValuteApiStatus.ERROR
+                _status.value = ValuteApiStatus.ERROR(e.toString())
                 Log.d("Valute", e.toString())
             }
         }

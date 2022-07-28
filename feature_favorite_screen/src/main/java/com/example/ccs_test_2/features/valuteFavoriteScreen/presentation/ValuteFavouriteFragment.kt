@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ccs_test_2.features.valuteFavoriteScreen.databinding.FragmentValuteFavouriteBinding
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.model.RecordBookmark
 import com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.adapter.BookmarkAdapter
 import com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.viewModel.BookmarksScreenViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -34,22 +37,24 @@ class ValuteFavouriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bookmarksScreenViewModel.bookmarksList.observe(viewLifecycleOwner) {
-            val adapterBookmark = BookmarkAdapter(
-                object : BookmarkAdapter.BookmarkClickListener {
+        lifecycleScope.launchWhenStarted() {
+            bookmarksScreenViewModel.flow1.collect {
+                val adapterBookmark = BookmarkAdapter(
+                    object : BookmarkAdapter.BookmarkClickListener {
 
-                    override fun deleteBookmark(recordBookmark: RecordBookmark) {
-                        bookmarksScreenViewModel.deleteBookmark(recordBookmark)
+                        override fun deleteBookmark(recordBookmark: RecordBookmark) {
+                            bookmarksScreenViewModel.deleteBookmark(recordBookmark)
+                        }
+
                     }
+                )
+                adapterBookmark.submitList(it)
+                binding.recyclerViewValuteList.adapter = adapterBookmark
+                binding.recyclerViewValuteList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-                }
-            )
-            Log.d("Valute", it.toString())
-            adapterBookmark.submitList(it)
-            binding.recyclerViewValuteList.adapter = adapterBookmark
-            binding.recyclerViewValuteList.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
+            }
         }
+
 
         binding.floatingActionButton.setOnClickListener {
             bookmarksScreenViewModel.deleteAllBooks()

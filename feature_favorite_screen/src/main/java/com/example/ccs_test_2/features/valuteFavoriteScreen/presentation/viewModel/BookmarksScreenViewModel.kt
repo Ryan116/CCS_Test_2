@@ -9,7 +9,12 @@ import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.usecase.Delet
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.usecase.DeleteBookmarkUseCase
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.usecase.GetBookmarksListUseCase
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import org.koin.core.KoinApplication.Companion.init
+
 
 class BookmarksScreenViewModel(
     private val getBookmarksListUseCase: GetBookmarksListUseCase,
@@ -17,7 +22,12 @@ class BookmarksScreenViewModel(
     private val deleteAllBookmarksUseCase: DeleteAllBookmarksUseCase
 ) : ViewModel() {
 
-    var bookmarksList: LiveData<List<RecordBookmark>> = MutableLiveData()
+    private var _bookmarksList = MutableStateFlow<List<RecordBookmark>>(mutableListOf())
+    val bookmarksList: StateFlow<List<RecordBookmark>> = _bookmarksList
+
+
+    lateinit var flow1: Flow<List<RecordBookmark>>
+
 
     init {
         getBookmarksList()
@@ -25,7 +35,7 @@ class BookmarksScreenViewModel(
 
     private fun getBookmarksList() {
         viewModelScope.launch {
-            bookmarksList = getBookmarksListUseCase.getBookmarksList()
+            flow1 = getBookmarksListUseCase.getBookmarksList()
         }
     }
 
