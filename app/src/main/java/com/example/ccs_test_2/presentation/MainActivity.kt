@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.navigation.findNavController
 import com.example.ccs_test_2.R
 import com.example.ccs_test_2.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null

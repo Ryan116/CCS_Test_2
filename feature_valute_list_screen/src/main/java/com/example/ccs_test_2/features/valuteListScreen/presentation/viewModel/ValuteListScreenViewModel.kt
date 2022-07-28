@@ -7,11 +7,13 @@ import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomai
 import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.AddBookmarkUseCase
 import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.DeleteBookmarkUseCase
 import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.GetValuteCursUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.util.*
+import javax.inject.Inject
 
 sealed class ValuteApiStatus() {
     class LOADING() : ValuteApiStatus()
@@ -20,7 +22,8 @@ sealed class ValuteApiStatus() {
     object Empty : ValuteApiStatus()
 }
 
-class ValuteListScreenViewModel(
+@HiltViewModel
+class ValuteListScreenViewModel @Inject constructor(
     private val getValuteCursUseCase: GetValuteCursUseCase,
     private val addBookmarkUseCase: AddBookmarkUseCase,
     private val deleteBookmarkUseCase: DeleteBookmarkUseCase,

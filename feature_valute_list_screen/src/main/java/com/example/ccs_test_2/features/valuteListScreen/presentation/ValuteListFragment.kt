@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ccs_test_2.features.valuteListScreen.databinding.FragmentValuteListBinding
@@ -16,17 +17,18 @@ import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomai
 import com.example.ccs_test_2.features.valuteListScreen.presentation.adapter.ValuteAdapter
 import com.example.ccs_test_2.features.valuteListScreen.presentation.viewModel.ValuteApiStatus
 import com.example.ccs_test_2.features.valuteListScreen.presentation.viewModel.ValuteListScreenViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
+@AndroidEntryPoint
 class ValuteListFragment : Fragment() {
 
     private lateinit var binding: FragmentValuteListBinding
 
-    private val valuteListScreenViewModel by viewModel<ValuteListScreenViewModel>()
+    private val valuteListScreenViewModel: ValuteListScreenViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -84,6 +86,12 @@ class ValuteListFragment : Fragment() {
                     "AUD" -> {valuteListScreenViewModel.setCurrency("R01010")}
                     "AZN" -> {valuteListScreenViewModel.setCurrency("R01020A")}
                     "GBP" -> {valuteListScreenViewModel.setCurrency("R01035")}
+                    "AMD" -> {valuteListScreenViewModel.setCurrency("R01060")}
+                    "BYN" -> {valuteListScreenViewModel.setCurrency("R01090B")}
+                    "BGN" -> {valuteListScreenViewModel.setCurrency("R01100")}
+                    "BRL" -> {valuteListScreenViewModel.setCurrency("R01115")}
+                    "HUF" -> {valuteListScreenViewModel.setCurrency("R01135")}
+                    "HKD" -> {valuteListScreenViewModel.setCurrency("R01200")}
                     else -> {valuteListScreenViewModel.setCurrency("R01235")}
                 }
                 lifecycleScope.launch(Dispatchers.Main) {

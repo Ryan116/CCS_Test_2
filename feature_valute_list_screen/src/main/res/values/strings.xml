@@ -14,6 +14,12 @@
         <item>AUD</item>
         <item>AZN</item>
         <item>GBP</item>
+        <item>AMD</item>
+        <item>BYN</item>
+        <item>BGN</item>
+        <item>BRL</item>
+        <item>HUF</item>
+        <item>HKD</item>
     </array>
     <array name="filter">
         <item>1..10</item>

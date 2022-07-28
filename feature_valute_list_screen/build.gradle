@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -46,12 +48,6 @@ dependencies {
         exclude module: 'stax'
         exclude module: 'stax-api'
     }
-    // Koin Core features
-    implementation "io.insert-koin:koin-core:3.1.4"
-    // Koin Test features
-    testImplementation "io.insert-koin:koin-test:3.0.2"
-    // Koin main features for Android
-    implementation "io.insert-koin:koin-android:3.1.4"
     //Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
@@ -60,6 +56,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0"
     //Fragment
     implementation 'androidx.fragment:fragment-ktx:1.5.0'
+    //Hilt
+    implementation 'com.google.dagger:hilt-android:2.43'
+    kapt 'com.google.dagger:hilt-compiler:2.43'
 
     //Modules
     implementation project(path: ':common:database')

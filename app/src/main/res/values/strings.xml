@@ -9,12 +9,6 @@
     <string name="value">Value</string>
     <string name="input_curs_value">Input curs value</string>
     <string name="check_value">Check value</string>
-    <array name="currency">
-        <item>USD</item>
-        <item>AUD</item>
-        <item>AZN</item>
-        <item>GBP</item>
-    </array>
     <array name="filter">
         <item>1..10</item>
         <item>10..1</item>

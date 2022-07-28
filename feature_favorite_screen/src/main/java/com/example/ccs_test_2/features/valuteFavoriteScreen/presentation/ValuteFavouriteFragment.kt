@@ -1,29 +1,27 @@
 package com.example.ccs_test_2.features.valuteFavoriteScreen.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ccs_test_2.features.valuteFavoriteScreen.databinding.FragmentValuteFavouriteBinding
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.model.RecordBookmark
 import com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.adapter.BookmarkAdapter
 import com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.viewModel.BookmarksScreenViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ValuteFavouriteFragment : Fragment() {
 
     private var _binding: FragmentValuteFavouriteBinding? = null
     private val binding
         get() = _binding!!
 
-    private val bookmarksScreenViewModel by viewModel<BookmarksScreenViewModel>()
+    private val bookmarksScreenViewModel: BookmarksScreenViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

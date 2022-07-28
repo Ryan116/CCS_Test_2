@@ -1,7 +1,5 @@
 package com.example.ccs_test_2.features.valuteListScreen.domain.model
 
-import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomain
-
 
 data class ValCursDomain(
     var id: String? = null,
