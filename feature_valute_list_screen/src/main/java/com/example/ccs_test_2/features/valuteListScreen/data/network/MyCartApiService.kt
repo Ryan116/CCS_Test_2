@@ -14,7 +14,7 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface ValuteApiInterface {
+interface MainApi {
     @GET("XML_dynamic.asp")
     suspend fun getValuteCurs(
         @Query("date_req1") dateFrom: String,
@@ -25,7 +25,7 @@ interface ValuteApiInterface {
 }
 
 object ValuteApi {
-    val retrofitService: ValuteApiInterface by lazy {
-        retrofit.create(ValuteApiInterface::class.java)
+    val retrofitService: MainApi by lazy {
+        retrofit.create(MainApi::class.java)
     }
 }

@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/itemMainFragment"
         android:icon="@drawable/ic_item_popular_2"
-        android:title="Popular"
+        android:title="@string/bottom_bar_item_popular"
 
         android:orderInCategory="1"/>
-    <item android:id="@+id/item2"
+    <item android:id="@+id/itemFavoriteFragment"
         android:icon="@drawable/ic_add_to_favorite_full_2"
-        android:title="Favorites"
+        android:title="@string/bottom_bar_item_favorites"
         android:orderInCategory="2"/>
 
 

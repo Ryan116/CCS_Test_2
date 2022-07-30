@@ -16,23 +16,22 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.bottomNavigationView.setOnItemSelectedListener { it ->
             when (it.itemId) {
                 R.id.itemMainFragment -> {
-                    findNavController(binding.fragmentContainerView.id).navigate(R.id.action_to_valute_list_fragment)
+                    findNavController(binding.fragmentContainerView.id).navigate(R.id.action_to_main_fragment)
                 }
-                R.id.item2 -> {
+                R.id.itemFavoriteFragment -> {
                     findNavController(binding.fragmentContainerView.id).navigate(R.id.action_to_favorite_fragment)
                 }
             }
             true
         }
     }
-
-
 
     override fun onDestroy() {
         super.onDestroy()

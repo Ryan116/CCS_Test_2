@@ -3,28 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/valuteListFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
-        android:id="@+id/valuteListFragment"
+        android:id="@+id/mainFragment"
         android:name="com.example.ccs_test_2.features.valuteListScreen.presentation.ValuteListFragment"
-        android:label="fragment_valute_list"
+        android:label="fragment_main"
         tools:layout="@layout/fragment_valute_list" />
     <fragment
-        android:id="@+id/valuteFavouriteFragment"
+        android:id="@+id/favouriteFragment"
         android:name="com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.ValuteFavouriteFragment"
-        android:label="fragment_valute_favourite"
+        android:label="fragment_favourite"
         tools:layout="@layout/fragment_valute_favourite" />
 
     <action
-        android:id="@+id/action_to_valute_list_fragment"
-        app:destination="@id/valuteListFragment"
+        android:id="@+id/action_to_main_fragment"
+        app:destination="@id/mainFragment"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim" />
 
     <action
         android:id="@+id/action_to_favorite_fragment"
-        app:destination="@id/valuteFavouriteFragment"
+        app:destination="@id/favouriteFragment"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim" />
 </navigation>

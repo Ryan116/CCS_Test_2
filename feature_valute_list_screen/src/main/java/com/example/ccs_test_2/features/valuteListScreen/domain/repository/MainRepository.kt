@@ -2,7 +2,7 @@ package com.example.ccs_test_2.features.valuteListScreen.domain.repository
 
 import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomain
 
-interface ValuteRepository {
+interface MainRepository {
     suspend fun getValuteCurs(
         dateFrom: String,
         dateBefore: String,

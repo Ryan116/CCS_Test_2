@@ -72,11 +72,17 @@ dependencies {
     implementation project(path: ':feature_valute_list_screen')
     implementation project(path: ':common:database')
     implementation project(path: ':feature_favorite_screen')
+    implementation project(path: ':common:constants')
     //Hilt
     implementation 'com.google.dagger:hilt-android:2.43'
     kapt 'com.google.dagger:hilt-compiler:2.43'
     //Fragment
     implementation 'androidx.fragment:fragment-ktx:1.5.0'
+    //Simple XML converter
+    implementation('com.squareup.retrofit2:converter-simplexml:2.9.0') {
+        exclude module: 'stax'
+        exclude module: 'stax-api'
+    }
 
 
 

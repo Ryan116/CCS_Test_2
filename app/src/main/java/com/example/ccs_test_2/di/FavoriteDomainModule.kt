@@ -1,6 +1,6 @@
 package com.example.ccs_test_2.di
 
-import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.repository.BookmarkRepository
+import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.repository.FavoriteRepository
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.usecase.DeleteAllBookmarksUseCase
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.usecase.DeleteBookmarkUseCase
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.usecase.GetBookmarksListUseCase
@@ -11,26 +11,26 @@ import dagger.hilt.android.components.ViewModelComponent
 
 @Module
 @InstallIn(ViewModelComponent::class)
-class FavoriteScreenDomainModule {
+class FavoriteDomainModule {
 
     @Provides
-    fun provideGetBookmarksListUseCase(bookmarkRepository: BookmarkRepository): GetBookmarksListUseCase {
+    fun provideGetBookmarksListUseCase(favoriteRepository: FavoriteRepository): GetBookmarksListUseCase {
         return GetBookmarksListUseCase(
-            bookmarkRepository = bookmarkRepository
+            favoriteRepository = favoriteRepository
         )
     }
 
     @Provides
-    fun provideDeleteBookmarkUseCase(bookmarkRepository: BookmarkRepository): DeleteBookmarkUseCase {
+    fun provideDeleteBookmarkUseCase(favoriteRepository: FavoriteRepository): DeleteBookmarkUseCase {
         return DeleteBookmarkUseCase(
-            bookmarkRepository = bookmarkRepository
+            favoriteRepository = favoriteRepository
         )
     }
 
     @Provides
-    fun provideDeleteAllBookmarksUseCase(bookmarkRepository: BookmarkRepository): DeleteAllBookmarksUseCase {
+    fun provideDeleteAllBookmarksUseCase(favoriteRepository: FavoriteRepository): DeleteAllBookmarksUseCase {
         return DeleteAllBookmarksUseCase(
-            bookmarkRepository = bookmarkRepository
+            favoriteRepository = favoriteRepository
         )
     }
 }

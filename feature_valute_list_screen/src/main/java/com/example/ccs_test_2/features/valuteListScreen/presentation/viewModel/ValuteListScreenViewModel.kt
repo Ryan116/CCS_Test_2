@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomain
 import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.AddBookmarkUseCase
 import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.DeleteBookmarkUseCase
-import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.GetValuteCursUseCase
+import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.GetCurrencyRateUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -24,7 +24,7 @@ sealed class ValuteApiStatus() {
 
 @HiltViewModel
 class ValuteListScreenViewModel @Inject constructor(
-    private val getValuteCursUseCase: GetValuteCursUseCase,
+    private val getCurrencyRateUseCase: GetCurrencyRateUseCase,
     private val addBookmarkUseCase: AddBookmarkUseCase,
     private val deleteBookmarkUseCase: DeleteBookmarkUseCase,
 ) : ViewModel() {
@@ -71,7 +71,7 @@ class ValuteListScreenViewModel @Inject constructor(
             _status.value = ValuteApiStatus.LOADING()
             try {
                 _valuteCurses.value =
-                    getValuteCursUseCase.getValuteCurs(dateFrom, dateBefore, valuteCode)
+                    getCurrencyRateUseCase.getValuteCurs(dateFrom, dateBefore, valuteCode)
                 _status.value = ValuteApiStatus.DONE()
             } catch (e: Exception) {
                 _status.value = ValuteApiStatus.ERROR(e.toString())

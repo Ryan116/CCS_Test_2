@@ -4,7 +4,7 @@ import com.example.ccs_test_2.features.valuteListScreen.data.network.modelRemote
 import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomain
 
 
-class ValuteMapper {
+class MainMapper {
     fun mapListRecordRemoteToListRecordDomain(listRecordRemote: List<RecordRemote>): List<RecordDomain> {
 
         val listRecord: MutableList<RecordDomain> = mutableListOf()

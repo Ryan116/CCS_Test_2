@@ -4,7 +4,7 @@ package com.example.ccs_test_2.features.valuteFavoriteScreen.data.mapper
 import com.example.ccs_test_2.common.database.data.modelDB.RecordDB
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.model.RecordBookmark
 
-class BookmarkScreenMapper {
+class FavoriteMapper {
     fun mapListRecordDBToListRecordBookmark(listRecordDB: List<RecordDB>): List<RecordBookmark> {
 
         val listRecordBookmark: MutableList<RecordBookmark> = mutableListOf()

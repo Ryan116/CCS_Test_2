@@ -4,9 +4,9 @@ import com.example.ccs_test_2.common.database.data.database.BookmarkDao
 import com.example.ccs_test_2.common.database.data.modelDB.RecordDB
 
 
-class ValuteLocalDataSourceImpl(
+class MainLocalDataSourceImpl(
     private val bookmarkDao: BookmarkDao
-) : ValuteLocalDataSource {
+) : MainLocalDataSource {
 
     override suspend fun addBookmark(recordDB: RecordDB) {
         bookmarkDao.addBookmark(recordDB)

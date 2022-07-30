@@ -2,10 +2,10 @@ package com.example.ccs_test_2.features.valuteFavoriteScreen.domain.usecase
 
 
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.model.RecordBookmark
-import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.repository.BookmarkRepository
+import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.repository.FavoriteRepository
 
-class DeleteBookmarkUseCase(private val bookmarkRepository: BookmarkRepository) {
+class DeleteBookmarkUseCase(private val favoriteRepository: FavoriteRepository) {
     suspend fun deleteBookmark(recordBookmark: RecordBookmark) {
-        bookmarkRepository.deleteBookmark(recordBookmark)
+        favoriteRepository.deleteBookmark(recordBookmark)
     }
 }
