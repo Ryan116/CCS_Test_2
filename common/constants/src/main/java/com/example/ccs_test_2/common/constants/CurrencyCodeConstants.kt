@@ -1,6 +1,7 @@
 package com.example.ccs_test_2.common.constants
 
 enum class CurrencyCodeConstants(val code: String) {
+
     USD("R01235"),
     AUD("R01010"),
     AZN("R01020A"),
@@ -11,5 +12,4 @@ enum class CurrencyCodeConstants(val code: String) {
     BRL("R01115"),
     HUF("R01135"),
     HKD("R01200")
-
 }

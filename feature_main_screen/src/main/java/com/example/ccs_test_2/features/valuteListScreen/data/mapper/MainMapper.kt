@@ -1,5 +1,5 @@
 package com.example.ccs_test_2.features.valuteListScreen.data.mapper
-import com.example.ccs_test_2.common.database.data.modelDB.RecordDB
+import com.example.ccs_test_2.common.database.data.modelDB.CurrencyRateItemDB
 import com.example.ccs_test_2.features.valuteListScreen.data.network.modelRemote.RecordRemote
 import com.example.ccs_test_2.features.valuteListScreen.domain.model.RecordDomain
 
@@ -21,8 +21,8 @@ class MainMapper {
         return listRecord
     }
 
-    fun mapRecordDomainToRecordDB(recordDomain: RecordDomain): RecordDB {
-        return RecordDB(
+    fun mapRecordDomainToRecordDB(recordDomain: RecordDomain): CurrencyRateItemDB {
+        return CurrencyRateItemDB(
             id = recordDomain.id,
             nominal = recordDomain.nominal,
             value = recordDomain.value,

@@ -1,21 +1,21 @@
 package com.example.ccs_test_2.common.database.data.database
 
 import androidx.room.*
-import com.example.ccs_test_2.common.database.data.modelDB.RecordDB
+import com.example.ccs_test_2.common.database.data.modelDB.CurrencyRateItemDB
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BookmarkDao {
-    @Query("SELECT * FROM currency_table ORDER BY id")
-    fun getBookmarks(): Flow<List<RecordDB>>
+
+    @Query("SELECT * FROM currency_rate_table ORDER BY id")
+    fun getBookmarks(): Flow<List<CurrencyRateItemDB>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addBookmark(recordDB: RecordDB)
+    suspend fun addBookmark(currencyRateItemDB: CurrencyRateItemDB)
 
     @Delete
-    suspend fun deleteBookmark(recordDB: RecordDB)
+    suspend fun deleteBookmark(currencyRateItemDB: CurrencyRateItemDB)
 
-    @Query("DELETE FROM currency_table")
+    @Query("DELETE FROM currency_rate_table")
     suspend fun deleteAllBookmarks()
-
 }

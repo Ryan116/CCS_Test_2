@@ -5,7 +5,7 @@
       <module name="CCS_Test_2.app" target="11" />
       <module name="CCS_Test_2.common.database" target="11" />
       <module name="CCS_Test_2.feature_favorite_screen" target="11" />
-      <module name="CCS_Test_2.feature_valute_list_screen" target="11" />
+      <module name="CCS_Test_2.feature_main_screen" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

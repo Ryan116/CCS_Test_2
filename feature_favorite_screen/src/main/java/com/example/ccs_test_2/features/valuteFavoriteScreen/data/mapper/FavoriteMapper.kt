@@ -1,15 +1,15 @@
 package com.example.ccs_test_2.features.valuteFavoriteScreen.data.mapper
 
 
-import com.example.ccs_test_2.common.database.data.modelDB.RecordDB
+import com.example.ccs_test_2.common.database.data.modelDB.CurrencyRateItemDB
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.model.RecordBookmark
 
 class FavoriteMapper {
-    fun mapListRecordDBToListRecordBookmark(listRecordDB: List<RecordDB>): List<RecordBookmark> {
+    fun mapListRecordDBToListRecordBookmark(listCurrencyRateItemDB: List<CurrencyRateItemDB>): List<RecordBookmark> {
 
         val listRecordBookmark: MutableList<RecordBookmark> = mutableListOf()
 
-        listRecordDB.forEach {
+        listCurrencyRateItemDB.forEach {
             val recordBookmark = RecordBookmark(
                 id = it.id,
                 nominal = it.nominal,
@@ -21,8 +21,8 @@ class FavoriteMapper {
         return listRecordBookmark
     }
 
-    fun mapRecordBookmarkToRecordDB(recordBookmark: RecordBookmark): RecordDB {
-        return RecordDB(
+    fun mapRecordBookmarkToRecordDB(recordBookmark: RecordBookmark): CurrencyRateItemDB {
+        return CurrencyRateItemDB(
             id = recordBookmark.id,
             nominal = recordBookmark.nominal,
             value = recordBookmark.value,

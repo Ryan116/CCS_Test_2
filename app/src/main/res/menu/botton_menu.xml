@@ -9,6 +9,4 @@
         android:icon="@drawable/ic_add_to_favorite_full_2"
         android:title="@string/bottom_bar_item_favorites"
         android:orderInCategory="2"/>
-
-
 </menu>

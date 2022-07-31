@@ -14,7 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CCS_Test_2"
 include ':app'
-include ':feature_valute_list_screen'
+include ':feature_main_screen'
 include ':common'
 include ':common:database'
 include ':feature_favorite_screen'
