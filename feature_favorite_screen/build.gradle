@@ -37,25 +37,30 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
-    implementation 'com.google.android.material:material:1.6.1'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation "androidx.core:core-ktx:$androidx_core_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "com.google.android.material:material:$android_material"
+
+    // Test
+    testImplementation "junit:junit:$junit_test_version"
+    androidTestImplementation "androidx.test.ext:junit:$test_implementation_junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$test_implementation_expresso_version"
+
     //Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_core"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android"
+
     // Lifecycle libraries
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecylce_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecylce_version"
+
     //Fragment
-    implementation 'androidx.fragment:fragment-ktx:1.5.0'
+    implementation "androidx.fragment:fragment-ktx:$fragmentKtx_version"
+
     //Modules
     implementation project(path: ':common:database')
+
     //Hilt
-    implementation 'com.google.dagger:hilt-android:2.43'
-    kapt 'com.google.dagger:hilt-compiler:2.43'
-    //Fragment
-    implementation 'androidx.fragment:fragment-ktx:1.5.0'
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 }
