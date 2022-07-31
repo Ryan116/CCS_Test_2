@@ -31,7 +31,7 @@ class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
     private val binding
-    get() = _binding!!
+        get() = _binding!!
 
     private val mainViewModel: MainViewModel by viewModels()
 
@@ -224,7 +224,11 @@ class MainFragment : Fragment() {
             }
         lifecycleScope.launch() {
             mainViewModel.currentCurrencyCode.collect {
-                mainViewModel.getCurrencyList(currencyCode = it)
+                mainViewModel.getCurrencyList(
+                    dateFrom = binding.textViewDateFrom.text.toString(),
+                    dateBefore = binding.textViewDateBefore.text.toString(),
+                    currencyCode = it
+                )
             }
         }
     }
