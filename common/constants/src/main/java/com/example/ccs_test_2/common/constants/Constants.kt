@@ -8,7 +8,6 @@ object Constants {
     const val BOOKMARK_DATABASE_NAME = "currency_database"
     const val TABLE_NAME = "currency_rate_table"
 
-
     const val DEFAULT_VALUE_DATE_RANGE_1 = "01/01/2021"
     const val DEFAULT_VALUE_DATE_RANGE_2 = "01/01/2022"
     const val DEFAULT_VALUE_CURRENCY_CODE = "R01235"
@@ -32,7 +31,10 @@ object Constants {
     const val CURRENCY_RATE_ITEM_REMOTE_ATTRIBUTE_NAME_ID = "Id"
     const val CURRENCY_RATE_ITEM_REMOTE_DEFAULT_VALUE_ID = "R01235"
 
-
     const val CURRENCY_FILTER_TYPE_ASC = "1..10"
     const val CURRENCY_FILTER_TYPE_DESC = "10..1"
+
+    const val MAIN_API_QUERY_DATE_REQ_1 = "date_req1"
+    const val MAIN_API_QUERY_DATE_REQ_2 = "date_req2"
+    const val MAIN_API_QUERY_VAL_NM_RQ = "VAL_NM_RQ"
 }

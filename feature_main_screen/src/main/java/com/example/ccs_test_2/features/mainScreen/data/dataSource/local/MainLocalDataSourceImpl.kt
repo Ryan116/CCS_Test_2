@@ -1,7 +1,7 @@
 package com.example.ccs_test_2.features.mainScreen.data.dataSource.local
 
 import com.example.ccs_test_2.common.database.data.database.BookmarkDao
-import com.example.ccs_test_2.common.database.data.modelDB.CurrencyRateItemDB
+import com.example.ccs_test_2.common.database.data.model.CurrencyRateItemDB
 
 class MainLocalDataSourceImpl(
     private val bookmarkDao: BookmarkDao

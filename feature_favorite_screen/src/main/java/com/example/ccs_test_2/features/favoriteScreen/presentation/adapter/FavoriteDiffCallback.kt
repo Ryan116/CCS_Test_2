@@ -1,4 +1,4 @@
-package com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.adapter
+package com.example.ccs_test_2.features.favoriteScreen.presentation.adapter
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.ccs_test_2.features.favoriteScreen.domain.model.FavoriteCurrencyRateItem

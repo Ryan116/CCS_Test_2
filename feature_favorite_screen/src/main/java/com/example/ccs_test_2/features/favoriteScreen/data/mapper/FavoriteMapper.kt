@@ -1,6 +1,7 @@
 package com.example.ccs_test_2.features.favoriteScreen.data.mapper
 
-import com.example.ccs_test_2.common.database.data.modelDB.CurrencyRateItemDB
+
+import com.example.ccs_test_2.common.database.data.model.CurrencyRateItemDB
 import com.example.ccs_test_2.features.favoriteScreen.domain.model.FavoriteCurrencyRateItem
 
 class FavoriteMapper {

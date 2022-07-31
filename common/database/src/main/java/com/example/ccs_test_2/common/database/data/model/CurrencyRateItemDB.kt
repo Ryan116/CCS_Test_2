@@ -1,4 +1,4 @@
-package com.example.ccs_test_2.common.database.data.modelDB
+package com.example.ccs_test_2.common.database.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.ccs_test_2.features.valuteFavoriteScreen.databinding.FavoriteItemBinding
 import com.example.ccs_test_2.features.favoriteScreen.domain.model.FavoriteCurrencyRateItem
-import com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.adapter.FavoriteDiffCallback
 
 class FavoriteAdapter(
     private val onItemClicked: (FavoriteCurrencyRateItem) -> Unit

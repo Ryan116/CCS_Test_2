@@ -1,11 +1,11 @@
-package com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.viewModel
+package com.example.ccs_test_2.features.favoriteScreen.presentation.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ccs_test_2.features.favoriteScreen.domain.model.FavoriteCurrencyRateItem
-import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.usecase.DeleteAllBookmarksUseCase
-import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.usecase.DeleteBookmarkUseCase
-import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.usecase.GetBookmarksListUseCase
+import com.example.ccs_test_2.features.favoriteScreen.domain.usecase.DeleteAllBookmarksUseCase
+import com.example.ccs_test_2.features.favoriteScreen.domain.usecase.DeleteBookmarkUseCase
+import com.example.ccs_test_2.features.favoriteScreen.domain.usecase.GetBookmarksListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

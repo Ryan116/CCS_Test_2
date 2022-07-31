@@ -1,7 +1,7 @@
 package com.example.ccs_test_2.common.database.data.database
 
 import androidx.room.*
-import com.example.ccs_test_2.common.database.data.modelDB.CurrencyRateItemDB
+import com.example.ccs_test_2.common.database.data.model.CurrencyRateItemDB
 import kotlinx.coroutines.flow.Flow
 
 @Dao

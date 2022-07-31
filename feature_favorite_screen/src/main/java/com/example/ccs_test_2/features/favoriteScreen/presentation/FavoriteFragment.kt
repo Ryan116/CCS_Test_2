@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ccs_test_2.features.valuteFavoriteScreen.databinding.FragmentFavoriteBinding
 import com.example.ccs_test_2.features.favoriteScreen.presentation.adapter.FavoriteAdapter
-import com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.viewModel.FavoriteViewModel
+import com.example.ccs_test_2.features.favoriteScreen.presentation.viewModel.FavoriteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
