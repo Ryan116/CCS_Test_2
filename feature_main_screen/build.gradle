@@ -62,4 +62,5 @@ dependencies {
 
     //Modules
     implementation project(path: ':common:database')
+    implementation project(path: ':common:constants')
 }

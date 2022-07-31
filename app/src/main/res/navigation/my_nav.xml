@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.ccs_test_2.features.valuteListScreen.presentation.ValuteListFragment"
+        android:name="com.example.ccs_test_2.features.mainScreen.presentation.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_valute_list" />
+        tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/favouriteFragment"
         android:name="com.example.ccs_test_2.features.favoriteScreen.presentation.FavoriteFragment"

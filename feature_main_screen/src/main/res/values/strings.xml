@@ -9,6 +9,12 @@
     <string name="value">Value</string>
     <string name="input_curs_value">Input curs value</string>
     <string name="check_value">Check value</string>
+    <string name="toast_incorrect_date">\'Select date from\' must be less than
+        \'Select date before!\' Choose another date!</string>
+    <string name="button_update_list">Update list</string>
+    <string name="button_select_currency">Select Currency</string>
+    <string name="text_view_filter_type">Filter type</string>
+    <string name="app_name_currency_rates">Currency Rates</string>
     <array name="currency">
         <item>USD</item>
         <item>AUD</item>

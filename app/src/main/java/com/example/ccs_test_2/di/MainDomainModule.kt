@@ -1,9 +1,9 @@
 package com.example.ccs_test_2.di
 
-import com.example.ccs_test_2.features.valuteListScreen.domain.repository.MainRepository
-import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.AddBookmarkUseCase
-import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.DeleteBookmarkUseCase
-import com.example.ccs_test_2.features.valuteListScreen.domain.usecase.GetCurrencyRateUseCase
+import com.example.ccs_test_2.features.mainScreen.domain.repository.MainRepository
+import com.example.ccs_test_2.features.mainScreen.domain.usecase.AddBookmarkUseCase
+import com.example.ccs_test_2.features.mainScreen.domain.usecase.DeleteBookmarkUseCase
+import com.example.ccs_test_2.features.mainScreen.domain.usecase.GetCurrencyRateUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
