@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -19,7 +20,6 @@ import com.example.ccs_test_2.features.mainScreen.databinding.FragmentMainBindin
 import com.example.ccs_test_2.features.mainScreen.domain.model.MainCurrencyRateItem
 import com.example.ccs_test_2.features.mainScreen.presentation.adapter.BookmarkClickListener
 import com.example.ccs_test_2.features.mainScreen.presentation.adapter.MainAdapter
-import com.example.ccs_test_2.features.mainScreen.presentation.viewModel.CurrencyApiStatus
 import com.example.ccs_test_2.features.mainScreen.presentation.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -238,6 +238,7 @@ class MainFragment : Fragment() {
             mainViewModel.status.collect {
                 when (it) {
                     is CurrencyApiStatus.ERROR -> {
+                        binding.progressBar.isVisible = false
                         Toast.makeText(
                             requireContext(),
                             it.error,
@@ -245,9 +246,16 @@ class MainFragment : Fragment() {
                         )
                             .show()
                     }
-                    CurrencyApiStatus.DONE -> {}
-                    CurrencyApiStatus.Empty -> {}
-                    CurrencyApiStatus.LOADING -> {}
+                    CurrencyApiStatus.DONE -> {
+                        binding.progressBar.isVisible = false
+
+                    }
+                    CurrencyApiStatus.LOADING -> {
+                        binding.progressBar.isVisible = true
+                    }
+                    else -> {
+                        Unit
+                    }
                 }
             }
         }

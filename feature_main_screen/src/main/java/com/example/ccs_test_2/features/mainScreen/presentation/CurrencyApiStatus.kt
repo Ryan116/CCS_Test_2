@@ -1,4 +1,4 @@
-package com.example.ccs_test_2.features.mainScreen.presentation.viewModel
+package com.example.ccs_test_2.features.mainScreen.presentation
 
 sealed class CurrencyApiStatus() {
     object LOADING : CurrencyApiStatus()
