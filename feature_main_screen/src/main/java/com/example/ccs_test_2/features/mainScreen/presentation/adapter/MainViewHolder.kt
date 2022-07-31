@@ -14,6 +14,7 @@ class MainViewHolder(private var binding: CurrencyRateItemBinding) :
             textViewDate.text = mainCurrencyRateItem.date
             textViewNominal.text = mainCurrencyRateItem.nominal.toString()
             textViewValue.text = mainCurrencyRateItem.value
+
         }
     }
 }

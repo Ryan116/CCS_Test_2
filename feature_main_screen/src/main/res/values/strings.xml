@@ -15,6 +15,8 @@
     <string name="button_select_currency">Select Currency</string>
     <string name="text_view_filter_type">Filter type</string>
     <string name="app_name_currency_rates">Currency Rates</string>
+    <string name="text_view_date_from">01/01/2021</string>
+    <string name="text_view_date_before">01/01/2022</string>
     <array name="currency">
         <item>USD</item>
         <item>AUD</item>

@@ -19,16 +19,19 @@ import com.example.ccs_test_2.features.mainScreen.databinding.FragmentMainBindin
 import com.example.ccs_test_2.features.mainScreen.domain.model.MainCurrencyRateItem
 import com.example.ccs_test_2.features.mainScreen.presentation.adapter.BookmarkClickListener
 import com.example.ccs_test_2.features.mainScreen.presentation.adapter.MainAdapter
+import com.example.ccs_test_2.features.mainScreen.presentation.viewModel.CurrencyApiStatus
 import com.example.ccs_test_2.features.mainScreen.presentation.viewModel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
 
-    private lateinit var binding: FragmentMainBinding
+    private var _binding: FragmentMainBinding? = null
+    private val binding
+    get() = _binding!!
 
     private val mainViewModel: MainViewModel by viewModels()
 
@@ -37,14 +40,12 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentMainBinding.inflate(inflater)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setupLastMonthPeriodToTextViews()
 
         setupAdapter()
 
@@ -57,13 +58,13 @@ class MainFragment : Fragment() {
 
         updateCurrencyList()
 
-//        setupState()
+        setupState()
     }
 
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        _binding = null
-//    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
     private fun setupAdapter() {
         val mainAdapter = MainAdapter(
@@ -95,29 +96,21 @@ class MainFragment : Fragment() {
     private fun setUserDatesOnTextViews(textView: TextView) {
         textView.setOnClickListener {
             val calendar = Calendar.getInstance()
-            SimpleDateFormat("E MMM d", Locale.getDefault())
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
             val dateDialog = DatePickerDialog(
                 requireContext(),
-                DatePickerDialog.OnDateSetListener { view, mYear, mMon, mDay ->
-                    val mDayRef = String.format("%02d", mDay)
-                    val mMonRef = String.format("%02d", (mMon + 1))
-                    val textDate = "$mDayRef/$mMonRef/$mYear"
+                DatePickerDialog.OnDateSetListener { _, userYear, userMonth, userDAy ->
+                    val userDayRef = String.format("%02d", userDAy)
+                    val userMonRef = String.format("%02d", (userMonth + 1))
+                    val textDate = "$userDayRef/$userMonRef/$userYear"
                     textView.text = textDate
                 },
                 year,
                 month,
                 day
             ).show()
-        }
-    }
-
-    private fun setupLastMonthPeriodToTextViews() {
-        binding.apply {
-            textViewDateFrom.text = Constants.DEFAULT_VALUE_DATE_RANGE_1
-            textViewDateBefore.text = Constants.DEFAULT_VALUE_DATE_RANGE_2
         }
     }
 
@@ -232,6 +225,26 @@ class MainFragment : Fragment() {
         lifecycleScope.launch() {
             mainViewModel.currentCurrencyCode.collect {
                 mainViewModel.getCurrencyList(currencyCode = it)
+            }
+        }
+    }
+
+    private fun setupState() {
+        lifecycleScope.launch(Dispatchers.Main) {
+            mainViewModel.status.collect {
+                when (it) {
+                    is CurrencyApiStatus.ERROR -> {
+                        Toast.makeText(
+                            requireContext(),
+                            it.error,
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+                    CurrencyApiStatus.DONE -> {}
+                    CurrencyApiStatus.Empty -> {}
+                    CurrencyApiStatus.LOADING -> {}
+                }
             }
         }
     }
