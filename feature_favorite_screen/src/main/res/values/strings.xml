@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CCS_Test_2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment valute list</string>
+    <string name="date_from">Select date from:</string>
+    <string name="date_before">Select date before:</string>
+    <string name="date">Date</string>
+    <string name="nominal">Nominal</string>
+    <string name="value">Value</string>
+    <string name="input_curs_value">Input curs value</string>
+    <string name="check_value">Check value</string>
+    <string name="bottom_bar_item_popular">Popular</string>
+    <string name="bottom_bar_item_favorites">Favorite</string>
+
+</resources>

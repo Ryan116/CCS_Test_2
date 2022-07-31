@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_valute_list" />
     <fragment
         android:id="@+id/favouriteFragment"
-        android:name="com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.ValuteFavouriteFragment"
+        android:name="com.example.ccs_test_2.features.favoriteScreen.presentation.FavoriteFragment"
         android:label="fragment_favourite"
-        tools:layout="@layout/fragment_valute_favourite" />
+        tools:layout="@layout/fragment_favorite" />
 
     <action
         android:id="@+id/action_to_main_fragment"
