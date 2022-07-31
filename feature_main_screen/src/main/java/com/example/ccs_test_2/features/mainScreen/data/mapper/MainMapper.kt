@@ -13,7 +13,8 @@ class MainMapper {
             id = mainCurrencyRateItem.id,
             nominal = mainCurrencyRateItem.nominal,
             value = mainCurrencyRateItem.value,
-            date = mainCurrencyRateItem.date
+            date = mainCurrencyRateItem.date,
+            currencyName = mainCurrencyRateItem.currencyName
         )
     }
 

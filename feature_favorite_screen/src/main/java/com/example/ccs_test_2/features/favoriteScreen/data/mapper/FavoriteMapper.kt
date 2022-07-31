@@ -1,11 +1,11 @@
-package com.example.ccs_test_2.features.valuteFavoriteScreen.data.mapper
+package com.example.ccs_test_2.features.favoriteScreen.data.mapper
 
 import com.example.ccs_test_2.common.database.data.modelDB.CurrencyRateItemDB
-import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.model.FavoriteCurrencyRateItem
+import com.example.ccs_test_2.features.favoriteScreen.domain.model.FavoriteCurrencyRateItem
 
 class FavoriteMapper {
 
-    fun mapListCurrencyRateItemDBToListFavoriteCurrencyRateItemDomain(
+    fun mapListCurrencyRateItemDBToListFavoriteCurrencyRateItem(
         listCurrencyRateItemDB: List<CurrencyRateItemDB>
     ): List<FavoriteCurrencyRateItem> {
         return listCurrencyRateItemDB.map {
@@ -13,7 +13,8 @@ class FavoriteMapper {
                 id = it.id,
                 nominal = it.nominal,
                 value = it.value,
-                date = it.date
+                date = it.date,
+                currencyName = it.currencyName
             )
         }
     }

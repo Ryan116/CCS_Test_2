@@ -1,8 +1,8 @@
-package com.example.ccs_test_2.features.valuteFavoriteScreen.data.repository
+package com.example.ccs_test_2.features.favoriteScreen.data.repository
 
 import com.example.ccs_test_2.features.valuteFavoriteScreen.data.local.FavoriteLocalDataSource
-import com.example.ccs_test_2.features.valuteFavoriteScreen.data.mapper.FavoriteMapper
-import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.model.FavoriteCurrencyRateItem
+import com.example.ccs_test_2.features.favoriteScreen.data.mapper.FavoriteMapper
+import com.example.ccs_test_2.features.favoriteScreen.domain.model.FavoriteCurrencyRateItem
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.repository.FavoriteRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -15,7 +15,7 @@ class FavoriteRepositoryImpl(
 
     override suspend fun getBookmarks(): Flow<List<FavoriteCurrencyRateItem>> {
         return favoriteLocalDataSource.getBookmarksList().map {
-            favoriteMapper.mapListCurrencyRateItemDBToListFavoriteCurrencyRateItemDomain(it)
+            favoriteMapper.mapListCurrencyRateItemDBToListFavoriteCurrencyRateItem(it)
         }
     }
 

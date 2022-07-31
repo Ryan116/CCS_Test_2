@@ -87,8 +87,16 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/textViewCurrencyNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/text_view_currency_type_label"
+                android:textColor="@color/black" />
+
+            <TextView
                 android:id="@+id/textViewDateLabel"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
@@ -98,7 +106,7 @@
 
             <TextView
                 android:id="@+id/textViewNominal"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/nominal"
@@ -106,7 +114,7 @@
 
             <TextView
                 android:id="@+id/textViewValue"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/value"

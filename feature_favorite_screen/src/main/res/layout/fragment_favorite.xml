@@ -32,6 +32,14 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/textViewCurrencyNameFavoriteLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:text="@string/currency_name_favorite"
+                android:textColor="@color/black" />
+
+            <TextView
                 android:id="@+id/textViewDateLabel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -52,7 +60,7 @@
             <TextView
                 android:id="@+id/textViewValue"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/value"
                 android:textColor="@color/black" />

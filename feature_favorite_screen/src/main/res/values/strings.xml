@@ -11,5 +11,6 @@
     <string name="check_value">Check value</string>
     <string name="bottom_bar_item_popular">Popular</string>
     <string name="bottom_bar_item_favorites">Favorite</string>
+    <string name="currency_name_favorite">Currency</string>
 
 </resources>

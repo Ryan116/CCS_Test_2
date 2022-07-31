@@ -1,10 +1,10 @@
-package com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.adapter
+package com.example.ccs_test_2.features.favoriteScreen.presentation.adapter
 
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ccs_test_2.features.valuteFavoriteScreen.databinding.RecordBookmarkItemBinding
-import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.model.FavoriteCurrencyRateItem
+import com.example.ccs_test_2.features.valuteFavoriteScreen.databinding.FavoriteItemBinding
+import com.example.ccs_test_2.features.favoriteScreen.domain.model.FavoriteCurrencyRateItem
 
-class FavoriteViewHolder(private var binding: RecordBookmarkItemBinding) :
+class FavoriteViewHolder(private var binding: FavoriteItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     val bookmarkImageView = binding.imageViewFavorite2
@@ -15,8 +15,8 @@ class FavoriteViewHolder(private var binding: RecordBookmarkItemBinding) :
             textViewDateFavorite.text = favoriteCurrencyRateItem.date
             textViewNominalFavorite.text = favoriteCurrencyRateItem.nominal.toString()
             textViewValueFavorite.text = favoriteCurrencyRateItem.value
+            textViewCurrencyNameFavorite.text = favoriteCurrencyRateItem.currencyName
         }
-
     }
 }
 

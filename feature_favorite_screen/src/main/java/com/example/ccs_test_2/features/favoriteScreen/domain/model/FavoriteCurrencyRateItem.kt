@@ -1,9 +1,10 @@
-package com.example.ccs_test_2.features.valuteFavoriteScreen.domain.model
+package com.example.ccs_test_2.features.favoriteScreen.domain.model
 
 
 data class FavoriteCurrencyRateItem(
-    var id: String,
-    var nominal: Int,
-    var value: String,
-    var date: String
+    val id: String,
+    val nominal: Int,
+    val value: String,
+    val date: String,
+    val currencyName: String
 )

@@ -3,10 +3,9 @@ package com.example.ccs_test_2.features.favoriteScreen.presentation.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.ccs_test_2.features.valuteFavoriteScreen.databinding.RecordBookmarkItemBinding
-import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.model.FavoriteCurrencyRateItem
+import com.example.ccs_test_2.features.valuteFavoriteScreen.databinding.FavoriteItemBinding
+import com.example.ccs_test_2.features.favoriteScreen.domain.model.FavoriteCurrencyRateItem
 import com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.adapter.FavoriteDiffCallback
-import com.example.ccs_test_2.features.valuteFavoriteScreen.presentation.adapter.FavoriteViewHolder
 
 class FavoriteAdapter(
     private val onItemClicked: (FavoriteCurrencyRateItem) -> Unit
@@ -17,7 +16,7 @@ class FavoriteAdapter(
         parent: ViewGroup,
         viewType: Int
     ): FavoriteViewHolder {
-        return FavoriteViewHolder(RecordBookmarkItemBinding.inflate(LayoutInflater.from(parent.context)))
+        return FavoriteViewHolder(FavoriteItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {

@@ -3,8 +3,8 @@ package com.example.ccs_test_2.di
 import com.example.ccs_test_2.common.database.data.database.BookmarkDao
 import com.example.ccs_test_2.features.valuteFavoriteScreen.data.local.FavoriteLocalDataSource
 import com.example.ccs_test_2.features.valuteFavoriteScreen.data.local.FavoriteLocalDataSourceImpl
-import com.example.ccs_test_2.features.valuteFavoriteScreen.data.mapper.FavoriteMapper
-import com.example.ccs_test_2.features.valuteFavoriteScreen.data.repository.FavoriteRepositoryImpl
+import com.example.ccs_test_2.features.favoriteScreen.data.mapper.FavoriteMapper
+import com.example.ccs_test_2.features.favoriteScreen.data.repository.FavoriteRepositoryImpl
 import com.example.ccs_test_2.features.valuteFavoriteScreen.domain.repository.FavoriteRepository
 import dagger.Module
 import dagger.Provides
