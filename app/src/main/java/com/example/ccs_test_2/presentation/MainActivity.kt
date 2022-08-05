@@ -1,7 +1,7 @@
 package com.example.ccs_test_2.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.ccs_test_2.R
 import com.example.ccs_test_2.databinding.ActivityMainBinding
@@ -16,10 +16,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupBottomBarNavigation()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    private fun setupBottomBarNavigation() {
         binding.bottomNavigationView.setOnItemSelectedListener { it ->
             when (it.itemId) {
                 R.id.itemMainFragment -> {
@@ -31,10 +39,5 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 }

@@ -37,4 +37,6 @@ object Constants {
     const val MAIN_API_QUERY_DATE_REQ_1 = "date_req1"
     const val MAIN_API_QUERY_DATE_REQ_2 = "date_req2"
     const val MAIN_API_QUERY_VAL_NM_RQ = "VAL_NM_RQ"
+
+    const val CURRENCY_RATE_ITEM_DB_NAME_DEFAULT_VALUE = ""
 }

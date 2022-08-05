@@ -12,12 +12,11 @@ class FavoriteRepositoryImpl(
     private val favoriteMapper: FavoriteMapper
 ) : FavoriteRepository {
 
-
-    override suspend fun getBookmarks(): Flow<List<FavoriteCurrencyRateItem>> {
-        return favoriteLocalDataSource.getBookmarksList().map {
+    override suspend fun getBookmarks(): Flow<List<FavoriteCurrencyRateItem>> =
+        favoriteLocalDataSource.getBookmarksList().map {
             favoriteMapper.mapListCurrencyRateItemDBToListFavoriteCurrencyRateItem(it)
         }
-    }
+
 
     override suspend fun deleteBookmark(favoriteCurrencyRateItem: FavoriteCurrencyRateItem) {
         favoriteLocalDataSource.deleteBookmark(

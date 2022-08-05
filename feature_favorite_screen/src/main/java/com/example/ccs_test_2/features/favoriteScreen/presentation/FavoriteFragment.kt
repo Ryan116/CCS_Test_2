@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ccs_test_2.features.valuteFavoriteScreen.databinding.FragmentFavoriteBinding
 import com.example.ccs_test_2.features.favoriteScreen.presentation.adapter.FavoriteAdapter
 import com.example.ccs_test_2.features.favoriteScreen.presentation.viewModel.FavoriteViewModel
+import com.example.ccs_test_2.features.valuteFavoriteScreen.databinding.FragmentFavoriteBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -35,11 +35,9 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupAdapter()
+        setupRecyclerAdapter()
 
-        binding.floatingActionButton.setOnClickListener {
-            favoriteViewModel.deleteAllBookmarks()
-        }
+        setupFloatingButton()
     }
 
     override fun onDestroyView() {
@@ -47,7 +45,13 @@ class FavoriteFragment : Fragment() {
         _binding = null
     }
 
-    private fun setupAdapter() {
+    private fun setupFloatingButton() {
+        binding.floatingActionButton.setOnClickListener {
+            favoriteViewModel.deleteAllBookmarks()
+        }
+    }
+
+    private fun setupRecyclerAdapter() {
 
         val adapterBookmark = FavoriteAdapter() { favoriteCurrencyItemDomain ->
             favoriteViewModel.deleteBookmark(favoriteCurrencyItemDomain)

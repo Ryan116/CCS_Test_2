@@ -12,17 +12,29 @@ class MainRepositoryImpl(
     private val mainMapper: MainMapper
 ) : MainRepository {
 
-    override suspend fun getCurrencyRate(dateFrom: String, dateBefore: String, currencyCode: String): List<MainCurrencyRateItem> {
-        return mainRemoteDataSource.getCurrencyRateList(dateFrom, dateBefore, currencyCode).map {
+    override suspend fun getCurrencyRate(
+        dateFrom: String,
+        dateBefore: String,
+        currencyCode: String
+    ): List<MainCurrencyRateItem> =
+        mainRemoteDataSource.getCurrencyRateList(dateFrom, dateBefore, currencyCode).map {
             mainMapper.mapMainCurrencyRateItemRemoteToMainCurrencyRateItem(it)
         }
-    }
+
 
     override suspend fun addBookmark(mainCurrencyRateItem: MainCurrencyRateItem) {
-        mainLocalDataSource.addBookmark(mainMapper.mapMainCurrencyRateItemToCurrencyRateItemDB(mainCurrencyRateItem))
+        mainLocalDataSource.addBookmark(
+            mainMapper.mapMainCurrencyRateItemToCurrencyRateItemDB(
+                mainCurrencyRateItem
+            )
+        )
     }
 
     override suspend fun deleteBookmark(mainCurrencyRateItem: MainCurrencyRateItem) {
-        mainLocalDataSource.deleteBookmark(mainMapper.mapMainCurrencyRateItemToCurrencyRateItemDB(mainCurrencyRateItem))
+        mainLocalDataSource.deleteBookmark(
+            mainMapper.mapMainCurrencyRateItemToCurrencyRateItemDB(
+                mainCurrencyRateItem
+            )
+        )
     }
 }

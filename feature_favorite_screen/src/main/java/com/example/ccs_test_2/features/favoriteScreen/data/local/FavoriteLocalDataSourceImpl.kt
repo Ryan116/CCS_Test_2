@@ -6,9 +6,9 @@ import kotlinx.coroutines.flow.Flow
 
 class FavoriteLocalDataSourceImpl(private val bookmarkDao: BookmarkDao) : FavoriteLocalDataSource {
 
-    override suspend fun getBookmarksList(): Flow<List<CurrencyRateItemDB>> {
-        return bookmarkDao.getBookmarks()
-    }
+    override suspend fun getBookmarksList(): Flow<List<CurrencyRateItemDB>> =
+        bookmarkDao.getBookmarks()
+
 
     override suspend fun deleteBookmark(currencyRateItemDB: CurrencyRateItemDB) {
         bookmarkDao.deleteBookmark(currencyRateItemDB)

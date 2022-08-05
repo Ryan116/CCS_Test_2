@@ -8,24 +8,22 @@ class MainMapper {
 
     fun mapMainCurrencyRateItemToCurrencyRateItemDB(
         mainCurrencyRateItem: MainCurrencyRateItem
-    ): CurrencyRateItemDB {
-        return CurrencyRateItemDB(
-            id = mainCurrencyRateItem.id,
-            nominal = mainCurrencyRateItem.nominal,
-            value = mainCurrencyRateItem.value,
-            date = mainCurrencyRateItem.date,
-            currencyName = mainCurrencyRateItem.currencyName
-        )
-    }
+    ) = CurrencyRateItemDB(
+        id = mainCurrencyRateItem.id,
+        nominal = mainCurrencyRateItem.nominal,
+        value = mainCurrencyRateItem.value,
+        date = mainCurrencyRateItem.date,
+        currencyName = mainCurrencyRateItem.currencyName
+    )
+
 
     fun mapMainCurrencyRateItemRemoteToMainCurrencyRateItem(
         mainCurrencyRateItemRemote: MainCurrencyRateItemRemote
-    ): MainCurrencyRateItem {
-        return MainCurrencyRateItem(
-            nominal = mainCurrencyRateItemRemote.nominal,
-            value = mainCurrencyRateItemRemote.value,
-            date = mainCurrencyRateItemRemote.date,
-            id = mainCurrencyRateItemRemote.id
-        )
-    }
+    ) = MainCurrencyRateItem(
+        nominal = mainCurrencyRateItemRemote.nominal,
+        value = mainCurrencyRateItemRemote.value,
+        date = mainCurrencyRateItemRemote.date,
+        id = mainCurrencyRateItemRemote.id,
+        currencyName = mainCurrencyRateItemRemote.currencyName
+    )
 }

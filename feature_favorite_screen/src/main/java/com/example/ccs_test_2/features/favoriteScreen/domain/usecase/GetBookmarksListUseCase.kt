@@ -6,8 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 class GetBookmarksListUseCase(private val favoriteRepository: FavoriteRepository) {
 
-    suspend fun getBookmarksList(): Flow<List<FavoriteCurrencyRateItem>> {
-        return favoriteRepository.getBookmarks()
-    }
+    suspend fun getBookmarksList(): Flow<List<FavoriteCurrencyRateItem>> =
+        favoriteRepository.getBookmarks()
 }
 

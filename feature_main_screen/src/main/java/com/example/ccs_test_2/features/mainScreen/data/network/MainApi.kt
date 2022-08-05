@@ -9,6 +9,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MainApi {
+
     @GET(Constants.GET_URL)
     suspend fun getCurrencyRate(
         @Query(MAIN_API_QUERY_DATE_REQ_1) dateFrom: String,

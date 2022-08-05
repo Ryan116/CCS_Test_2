@@ -23,7 +23,7 @@ ext {
 
     androidx_core_version = '1.7.0'
     appcompat_version = '1.4.2'
-    android_material = '1.6.1'
+    android_material_version = '1.6.1'
     constraint_layout_version = '2.1.4'
 
     //Navigation

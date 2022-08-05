@@ -36,7 +36,9 @@ class FavoriteViewModel @Inject constructor(
     private fun getBookmarksList() {
         viewModelScope.launch {
             getBookmarksListUseCase.getBookmarksList()
-                .onEach { _listFavoriteCurrencyRate.value = it }
+                .onEach {
+                    _listFavoriteCurrencyRate.value = it
+                }
                 .launchIn(viewModelScope + Dispatchers.IO)
         }
     }

@@ -45,7 +45,7 @@ class MainDataModule {
     @Singleton
     fun provideMainRemoteDataSource(mainApi: MainApi): MainRemoteDataSource {
         return MainRemoteDataSourceImpl(
-            mainApi =  mainApi
+            mainApi = mainApi
         )
     }
 
@@ -53,7 +53,7 @@ class MainDataModule {
     @Singleton
     fun provideMainLocalDataSource(bookmarkDao: BookmarkDao): MainLocalDataSource {
         return MainLocalDataSourceImpl(
-            bookmarkDao =  bookmarkDao
+            bookmarkDao = bookmarkDao
         )
     }
 
