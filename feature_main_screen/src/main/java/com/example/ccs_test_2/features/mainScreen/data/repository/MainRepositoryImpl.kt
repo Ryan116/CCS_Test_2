@@ -21,7 +21,6 @@ class MainRepositoryImpl(
             mainMapper.mapMainCurrencyRateItemRemoteToMainCurrencyRateItem(it)
         }
 
-
     override suspend fun addBookmark(mainCurrencyRateItem: MainCurrencyRateItem) {
         mainLocalDataSource.addBookmark(
             mainMapper.mapMainCurrencyRateItemToCurrencyRateItemDB(

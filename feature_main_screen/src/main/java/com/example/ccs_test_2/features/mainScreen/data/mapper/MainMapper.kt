@@ -13,7 +13,7 @@ class MainMapper {
         nominal = mainCurrencyRateItem.nominal,
         value = mainCurrencyRateItem.value,
         date = mainCurrencyRateItem.date,
-        currencyName = mainCurrencyRateItem.currencyName
+        currencyName = mainCurrencyRateItem.currencyName,
     )
 
 

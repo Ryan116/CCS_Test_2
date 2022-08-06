@@ -24,11 +24,8 @@ class MainAdapter(private val bookmarkClickListener: BookmarkClickListener) :
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-
         val listItem = getItem(position)
-
         holder.bind(listItem)
-
         holder.bookmarkImageView.setOnClickListener {
             if (listItem.pressed) {
                 holder.bookmarkImageView.setImageResource(R.drawable.ic_add_to_favorite_empty_2)

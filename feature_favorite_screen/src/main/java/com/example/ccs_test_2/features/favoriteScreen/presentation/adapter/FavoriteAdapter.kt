@@ -19,11 +19,8 @@ class FavoriteAdapter(
     }
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
-
         val listItem = getItem(position)
-
         holder.bind(listItem)
-
         holder.bookmarkImageView.setOnClickListener {
             onItemClicked(listItem)
         }

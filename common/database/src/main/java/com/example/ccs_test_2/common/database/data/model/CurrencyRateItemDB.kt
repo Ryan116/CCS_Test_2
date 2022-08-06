@@ -9,7 +9,7 @@ import com.example.ccs_test_2.common.constants.Constants.TABLE_NAME
 data class CurrencyRateItemDB(
     val id: String,
     val nominal: Int,
-    @PrimaryKey()
+    @PrimaryKey
     val value: String,
     val date: String,
     val currencyName: String = CURRENCY_RATE_ITEM_DB_NAME_DEFAULT_VALUE

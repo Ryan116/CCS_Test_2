@@ -17,8 +17,7 @@ class FavoriteMapper {
         )
     }
 
-
-    fun mapFavoriteCurrencyItemToCurrencyRateItemDB(
+    fun mapFavoriteCurrencyRateItemToCurrencyRateItemDB(
         favoriteCurrencyRateItem: FavoriteCurrencyRateItem
     ): CurrencyRateItemDB =
         CurrencyRateItemDB(

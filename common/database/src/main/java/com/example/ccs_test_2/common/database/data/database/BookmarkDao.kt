@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface BookmarkDao {
 
-    @Query("SELECT * FROM currency_rate_table ORDER BY id")
+    @Query("SELECT * FROM currency_rate_table ORDER BY date")
     fun getBookmarks(): Flow<List<CurrencyRateItemDB>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

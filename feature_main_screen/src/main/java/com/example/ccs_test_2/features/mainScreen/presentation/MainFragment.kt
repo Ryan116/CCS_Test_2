@@ -46,18 +46,12 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupAdapter()
-
         setUserDatesOnTextViews(binding.textViewDateFrom)
         setUserDatesOnTextViews(binding.textViewDateBefore)
-
         changeCurrencyType()
-
         chooseCurrencyListFilter()
-
         updateCurrencyList()
-
         setupState()
     }
 
@@ -69,7 +63,6 @@ class MainFragment : Fragment() {
     private fun setupAdapter() {
         val mainAdapter = MainAdapter(
             object : BookmarkClickListener {
-
                 override fun addBookmark(mainCurrencyRateItemDomain: MainCurrencyRateItem) {
                     mainViewModel.addBookmark(mainCurrencyRateItemDomain)
                 }
@@ -79,13 +72,11 @@ class MainFragment : Fragment() {
                 }
             }
         )
-
         binding.recyclerViewCurrencyList.apply {
             adapter = mainAdapter
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         }
-
         lifecycleScope.launch() {
             mainViewModel.currencyRates.collect {
                 mainAdapter.submitList(it)
@@ -169,8 +160,7 @@ class MainFragment : Fragment() {
                 }
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
 
@@ -218,9 +208,7 @@ class MainFragment : Fragment() {
                     }
                 }
 
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-
-                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
         lifecycleScope.launch() {
             mainViewModel.currentCurrencyCode.collect {

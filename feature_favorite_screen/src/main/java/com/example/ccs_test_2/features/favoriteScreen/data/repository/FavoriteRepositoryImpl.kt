@@ -20,7 +20,7 @@ class FavoriteRepositoryImpl(
 
     override suspend fun deleteBookmark(favoriteCurrencyRateItem: FavoriteCurrencyRateItem) {
         favoriteLocalDataSource.deleteBookmark(
-            favoriteMapper.mapFavoriteCurrencyItemToCurrencyRateItemDB(
+            favoriteMapper.mapFavoriteCurrencyRateItemToCurrencyRateItemDB(
                 favoriteCurrencyRateItem
             )
         )

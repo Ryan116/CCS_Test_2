@@ -6,9 +6,7 @@ import com.example.ccs_test_2.features.mainScreen.domain.model.MainCurrencyRateI
 
 class MainViewHolder(private var binding: CurrencyRateItemBinding) :
     RecyclerView.ViewHolder(binding.root) {
-
     val bookmarkImageView = binding.imageViewFavorite
-
     fun bind(mainCurrencyRateItem: MainCurrencyRateItem) {
         binding.apply {
             textViewDate.text = mainCurrencyRateItem.date

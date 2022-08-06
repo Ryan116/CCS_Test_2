@@ -6,4 +6,5 @@ data class FavoriteCurrencyRateItem(
     val value: String,
     val date: String,
     val currencyName: String
-)
+) {
+}
